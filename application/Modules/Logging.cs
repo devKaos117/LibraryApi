@@ -1,6 +1,6 @@
-using Interfaces;
+using Application.Interfaces;
 
-namespace Modules;
+namespace Application.Modules;
 
 class LogTracingService : ILogging
 {

@@ -1,5 +1,4 @@
-using Interfaces;
-using Repositories;
+using Application.Interfaces;
 
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
@@ -9,8 +8,6 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //builder.Services.AddScoped<ILogging, LogTracingService>();
-
-builder.Services.AddSingleton<IBookRepository, BookRepository>();
 
 var app = builder.Build();
 

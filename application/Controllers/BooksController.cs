@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using Models;
+using Application.Models;
 
-namespace Controllers;
+namespace Application.Controllers;
 
 [Route("/v1/books")]
 [ApiController]
