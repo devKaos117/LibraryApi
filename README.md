@@ -45,4 +45,4 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat mass
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus placerat massa vitae orci gravida, in porttitor.
 
 ### Diagrams <a name = "technical-description-diagrams"></a>
-- [Entity-Relationship Model](https://github.com/devKaos117/LibraryApi/blob/documentation/api_erm.pdf)
+- [Entity-Relationship Model](https://github.com/devKaos117/LibraryApi/blob/main/documentation/api_erm.pdf)
