@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Application.Models;
+using Application.Entitys;
 
 namespace Application.Controllers;
 
@@ -7,25 +7,58 @@ namespace Application.Controllers;
 [ApiController]
 class BooksController : ControllerBase
 {
+    /*
+    *   Instanciations and dependency injections
+    */
+    private readonly HttpContext _httpCtx;
+
+    public BooksController(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpCtx = httpContextAccessor.HttpContext;
+    }
+
+    /*
+    *   Return all books
+    */
     [HttpGet]
-    public ActionResult GetAll()
+    public IActionResult GetAll()
     {
-        // ActionResult<Dictionary<int, Book>>
-        return Ok("{id: {\"id\": n, \"isbn13\": \"XXXXXXXXXXXXX\", \"title\": \"...\", \"subtitle\": \"...\", \"language\": \"pt_br\", \"release\": \"XXXX-XX-XX\", \"description\": \"..\"}}");
+        throw new NotImplementedException();
     }
 
+    /*
+    *   Return a book by its id
+    */
     [HttpGet("{id}")]
-    public ActionResult GetByID(String id)
+    public IActionResult GetByID(string id)
     {
-        // ActionResult<Book>
-        return Ok("{\"id\": n, \"isbn13\": \"XXXXXXXXXXXXX\", \"title\": \"...\", \"subtitle\": \"...\", \"language\": \"pt_br\", \"release\": \"XXXX-XX-XX\", \"description\": \"..\"}");
+        throw new NotImplementedException();
     }
 
-    [HttpPost("/books")]
-
-    public ActionResult InsertBook(HttpContext ctx)
+    /*
+    *   Insert a book
+    */
+    [HttpPost]
+    public Task<IActionResult> InsertBook([FromBody] Book book)
     {
-        // async Task
-        return Created("uri", new Book());
+        throw new NotImplementedException();
+    }
+
+    /*
+    *   Update a book
+    */
+    [HttpPut]
+    public Task<IActionResult> UpdateBook([FromBody] Book book)
+    {
+        throw new NotImplementedException();
+    }
+
+    /*
+    *   Delete a book by its id
+    */
+    [HttpDelete("/delete/{id}")]
+    public Task<IActionResult> DeleteBook(string id)
+    {
+        throw new NotImplementedException();
     }
 }

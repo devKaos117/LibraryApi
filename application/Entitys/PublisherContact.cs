@@ -1,6 +1,6 @@
-namespace Application.Models;
+namespace Application.Entitys;
 
-class PublisherContact
+public class PublisherContact
 {
     public int Id { get; set; }
     public string Name { get; set; }

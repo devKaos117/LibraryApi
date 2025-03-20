@@ -2,16 +2,14 @@ using Application.Interfaces;
 
 namespace Application.Modules;
 
-class LogTracingService : ILogging
+class SysLogger : ILogging
 {
-	private readonly string _id;
-
-	public LogTracingService()
+	public SysLogger()
 	{
-		_id = GenerateId();
 	}
 
-	private string GenerateId() { return ""; }
-
-	public void Log(LogLevel level, string msg) { }
+	public static void Log(LogLevel level, string msg) 
+	{
+		Console.WriteLine($"[{DateTime.UtcNow.ToString("yyyy-MM-dd HH:mm:ss.fffffff")}] {level.ToString().ToUpper()}: {msg}");
+	}
 }

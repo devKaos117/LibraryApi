@@ -1,6 +1,6 @@
-namespace Application.Models;
+namespace Application.Entitys;
 
-class Genre
+public class Genre
 {
     public string Id { get; set; }
     public string Name { get; set; }

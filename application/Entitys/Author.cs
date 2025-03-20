@@ -1,6 +1,6 @@
-namespace Application.Models;
+namespace Application.Entitys;
 
-class Author
+public class Author
 {
     public int Id { get; set; }
     public string Tin { get; set; }

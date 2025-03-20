@@ -1,15 +1,27 @@
+/*
+*   Imports
+*/
 using Application.Interfaces;
+using Application.Modules;
 
+/*
+*   WebApp Builder Configuration
+*/
 WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+//  Adding services
 builder.Services.AddControllers();
-
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddScoped<ILogging, SysLogger>();
+builder.Services.AddHttpContextAccessor();
 
-//builder.Services.AddScoped<ILogging, LogTracingService>();
-
+// Building the app
 var app = builder.Build();
+
+/*
+*   WebApp Settings
+*/
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -18,17 +30,19 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-// Adding Middleware - LogTracingService
 /*
+*   Adding Middlewares
+*/
+
+// SysLogger
 app.Use(async (context, next) =>
 {
     var logTracingService = context.RequestServices.GetRequiredService<ILogging>();
-    logTracingService.Log(LogLevel.Trace, "");
+    SysLogger.Log(LogLevel.Trace, "test logging");
     await next.Invoke();
 });
-*/
 
-// Adding Middleware - GlobalExceptionHandling
+// GlobalExceptionHandling
 app.Use(async (context, next) =>
 {
     try
@@ -41,9 +55,11 @@ app.Use(async (context, next) =>
 });
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
 
+//  Controllers
 app.MapControllers();
-
+/*
+*   RUN
+*/
 app.Run();

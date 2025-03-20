@@ -1,6 +1,6 @@
-namespace Application.Models;
+namespace Application.Entitys;
 
-class PublisherAddress 
+public class PublisherAddress 
 {
     public int Id { get; set; }
     public string ZipCode { get; set; }

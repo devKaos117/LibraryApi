@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using Application.Models;
+using Application.Entitys;
 
 namespace Application.Controllers;
 
@@ -7,16 +7,57 @@ namespace Application.Controllers;
 [ApiController]
 public class GenresController : ControllerBase
 {
-    private static List<Genre> genres = new List<Genre>();
+    /*
+    *   Instanciations and dependency injections
+    */
+    private readonly HttpContext _httpCtx;
 
+    public GenresController(IHttpContextAccessor httpContextAccessor)
+    {
+        _httpCtx = httpContextAccessor.HttpContext;
+    }
+
+    /*
+    *   Return all genres
+    */
     [HttpGet]
-    public ActionResult GetAll()
+    public IActionResult GetAll()
     {
         throw new NotImplementedException();
     }
 
+    /*
+    *   Return a genre by its id
+    */
     [HttpGet("{id}")]
-    public ActionResult GetByID(String id)
+    public IActionResult GetByID(string id)
+    {
+        throw new NotImplementedException();
+    }
+
+    /*
+    *   Insert a genre
+    */
+    [HttpPost]
+    public Task<IActionResult> InsertGenre([FromBody] Genre genre)
+    {
+        throw new NotImplementedException();
+    }
+
+    /*
+    *   Update a genre
+    */
+    [HttpPut]
+    public Task<IActionResult> UpdateGenre([FromBody] Genre genre)
+    {
+        throw new NotImplementedException();
+    }
+
+    /*
+    *   Delete a genre by its id
+    */
+    [HttpDelete("/delete/{id}")]
+    public Task<IActionResult> DeleteGenre(string id)
     {
         throw new NotImplementedException();
     }

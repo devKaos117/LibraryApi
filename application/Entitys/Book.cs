@@ -1,6 +1,6 @@
-namespace Application.Models;
+namespace Application.Entitys;
 
-class Book
+public class Book
 {
     public int Id { get; set; }
     public string Isbn13 { get; set; }
